@@ -1,0 +1,2095 @@
+openapi: 3.0.1
+info:
+  title: Prodash APIs
+  version: 1.0.0
+servers:
+  - url: https://apigatewaydev.adient.com/v1/prodash
+    description: Quality
+security:
+  - ApiKeyAuth: []
+paths:
+  /getProgramDataByProgramId:
+    get:
+      tags:
+        - Get Program Data
+      summary: Get Program data by program id
+      description: Get Program data by program id
+      operationId: getProgramDataByProgramId
+      parameters:
+        - name: programId
+          in: query
+          description: Program Id
+          required: true
+          schema:
+            type: number
+            example: 3739372
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                description: ''
+                items:
+                  required:
+                    - baseStatus
+                    - commercialAgreement
+                    - createdBy
+                    - createdOn
+                    - directedSupplier
+                    - eop
+                    - evBevFlg
+                    - footprint
+                    - launchId
+                    - launchLocationCount
+                    - name
+                    - oemModelCd
+                    - oemPlatformName
+                    - oemVehicleName
+                    - plannedStartDt
+                    - processType
+                    - prodPlanVol
+                    - programBaseId
+                    - programBaseType
+                    - programId
+                    - programLifeYears
+                    - programManagerName
+                    - riskStatus
+                    - scopeSummary
+                    - sop
+                    - specialConstraint
+                    - statusSummary
+                    - stratigicImpact
+                    - vehicleSegment
+                    - zmdCustomerGroup
+                    - zmdCustomerGroupRegion
+                    - zmdCustomerPlantRegion
+                    - zmdCustomerPlants
+                    - zmdCustomerType
+                    - zmdCustomers
+                    - zmdDesignResponsibility
+                    - zmdDvPhase
+                    - zmdOems
+                    - zmdProductGroup
+                    - zmdProductLine
+                    - zmdProgramCategory
+                    - zmdProgramLifecycleState
+                    - ztdProgramAdientPlantMaps
+                    - ztdProgramExtendedUsers
+                    - ztdProgramIssueList
+                    - ztdProgramTimings
+                    - ztdProgramUsers
+                  type: object
+                  properties:
+                    programBaseId:
+                      type: number
+                    adientPlatform:
+                      type: object
+                    commercialAgreement:
+                      minLength: 1
+                      type: string
+                    createdBy:
+                      minLength: 1
+                      type: string
+                    createdOn:
+                      minLength: 1
+                      type: string
+                    deleteFlg:
+                      type: object
+                    deletedOn:
+                      type: object
+                    directedSupplier:
+                      minLength: 1
+                      type: string
+                    displayFlg:
+                      type: object
+                    dvBuildLocation:
+                      type: object
+                    eop:
+                      minLength: 1
+                      type: string
+                    evBevFlg:
+                      minLength: 1
+                      type: string
+                    footprint:
+                      minLength: 1
+                      type: string
+                    isActive:
+                      type: object
+                    isDraft:
+                      type: object
+                    launchId:
+                      type: number
+                    launchLocationCount:
+                      type: number
+                    modifiedBy:
+                      type: object
+                    modifiedOn:
+                      type: object
+                    name:
+                      minLength: 1
+                      type: string
+                    oemModelCd:
+                      minLength: 1
+                      type: string
+                    oemModelYear:
+                      type: object
+                    oemPlatformName:
+                      type: string
+                    oemVehicleName:
+                      minLength: 1
+                      type: string
+                    plannedStartDt:
+                      minLength: 1
+                      type: string
+                    processType:
+                      minLength: 1
+                      type: string
+                    prodPlanVol:
+                      type: number
+                    programBaseType:
+                      minLength: 1
+                      type: string
+                    programId:
+                      type: number
+                    programLifeYears:
+                      type: number
+                    riskStatus:
+                      minLength: 1
+                      type: string
+                    scopeSummary:
+                      minLength: 1
+                      type: string
+                    sop:
+                      minLength: 1
+                      type: string
+                    specialConstraint:
+                      minLength: 1
+                      type: string
+                    statusSummary:
+                      minLength: 1
+                      type: string
+                    stratigicImpact:
+                      minLength: 1
+                      type: string
+                    vehicleSegment:
+                      minLength: 1
+                      type: string
+                    baseStatus:
+                      minLength: 1
+                      type: string
+                    adientProductScope:
+                      type: object
+                    zmdCustomerGroup:
+                      required:
+                        - customerGroupCd
+                        - customerGroupId
+                        - customerGroupName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - zmdCustomerGroupRegion
+                      type: object
+                      properties:
+                        customerGroupId:
+                          type: number
+                        customerGroupCd:
+                          minLength: 1
+                          type: string
+                        customerGroupName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        zmdCustomerGroupRegion:
+                          required:
+                            - createdBy
+                            - createdOn
+                            - customerGroupRegionCd
+                            - customerGroupRegionId
+                            - customerGroupRegionName
+                            - deleteFlg
+                            - displayFlg
+                            - modifiedBy
+                            - modifiedOn
+                          type: object
+                          properties:
+                            customerGroupRegionId:
+                              type: number
+                            createdBy:
+                              minLength: 1
+                              type: string
+                            createdOn:
+                              minLength: 1
+                              type: string
+                            customerGroupRegionCd:
+                              minLength: 1
+                              type: string
+                            customerGroupRegionName:
+                              minLength: 1
+                              type: string
+                            deleteFlg:
+                              minLength: 1
+                              type: string
+                            displayFlg:
+                              minLength: 1
+                              type: string
+                            modifiedBy:
+                              minLength: 1
+                              type: string
+                            modifiedOn:
+                              minLength: 1
+                              type: string
+                    zmdCustomerGroupRegion:
+                      required:
+                        - createdBy
+                        - createdOn
+                        - customerGroupRegionCd
+                        - customerGroupRegionId
+                        - customerGroupRegionName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        customerGroupRegionId:
+                          type: number
+                        createdBy:
+                          minLength: 1
+                          type: string
+                        createdOn:
+                          minLength: 1
+                          type: string
+                        customerGroupRegionCd:
+                          minLength: 1
+                          type: string
+                        customerGroupRegionName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdCustomerPlantRegion:
+                      required:
+                        - createdBy
+                        - createdOn
+                        - customerPlantRegionCd
+                        - customerPlantRegionId
+                        - customerPlantRegionName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        customerPlantRegionId:
+                          type: number
+                        createdBy:
+                          minLength: 1
+                          type: string
+                        createdOn:
+                          minLength: 1
+                          type: string
+                        customerPlantRegionCd:
+                          minLength: 1
+                          type: string
+                        customerPlantRegionName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdCustomerType:
+                      required:
+                        - customerTypeCd
+                        - customerTypeId
+                        - customerTypeName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        customerTypeId:
+                          type: number
+                        customerTypeCd:
+                          minLength: 1
+                          type: string
+                        customerTypeName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdDesignResponsibility:
+                      required:
+                        - deleteFlg
+                        - designRespCd
+                        - designRespId
+                        - designRespName
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        designRespId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        designRespCd:
+                          minLength: 1
+                          type: string
+                        designRespName:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdPlusScope:
+                      type: object
+                    zmdProductGroup:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - productGroupCd
+                        - productGroupId
+                        - productGroupName
+                      type: object
+                      properties:
+                        productGroupId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        productGroupCd:
+                          minLength: 1
+                          type: string
+                        productGroupName:
+                          minLength: 1
+                          type: string
+                    zmdProductLine:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - productLineCd
+                        - productLineId
+                        - productLineName
+                      type: object
+                      properties:
+                        productLineId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        productLineCd:
+                          minLength: 1
+                          type: string
+                        productLineName:
+                          minLength: 1
+                          type: string
+                    zmdProgramCategory:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - programCategoryCd
+                        - programCategoryId
+                        - programCategoryName
+                      type: object
+                      properties:
+                        programCategoryId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        programCategoryCd:
+                          minLength: 1
+                          type: string
+                        programCategoryName:
+                          minLength: 1
+                          type: string
+                    programManagerName:
+                      minLength: 1
+                      type: string
+                    zmdProgramLifecycleState:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - programLifecycleStateCd
+                        - programLifecycleStateId
+                        - programLifecycleStateName
+                      type: object
+                      properties:
+                        programLifecycleStateId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        programLifecycleStateCd:
+                          minLength: 1
+                          type: string
+                        programLifecycleStateName:
+                          minLength: 1
+                          type: string
+                    ztdProgramBaseOemMaps:
+                      type: object
+                    ztdProgramBaseCustomerMaps:
+                      type: object
+                    ztdProgramBaseCustomerPlantMaps:
+                      type: object
+                    ztdProgramLaunches:
+                      type: object
+                    ztdProgramLessons:
+                      type: object
+                    ztdProgramManagerInputs:
+                      type: object
+                    ztdProgramPlusDeliverables:
+                      type: object
+                    ztdProgramProductAreaMaps:
+                      type: object
+                    ztdProgramAdientPlantMaps:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - createdBy
+                          - createdOn
+                          - deleteFlg
+                          - displayFlg
+                          - programAdientPlantMapId
+                        type: object
+                        properties:
+                          programAdientPlantMapId:
+                            type: number
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          createdOn:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            type: object
+                          modifiedOn:
+                            type: object
+                          zmdAdientPlant:
+                            required:
+                              - adientPlantCd
+                              - adientPlantId
+                              - adientPlantName
+                              - createdBy
+                              - createdOn
+                              - deleteFlg
+                              - displayFlg
+                              - modifiedBy
+                              - modifiedOn
+                            type: object
+                            properties:
+                              adientPlantId:
+                                type: number
+                              adientPlantCd:
+                                minLength: 1
+                                type: string
+                              adientPlantName:
+                                minLength: 1
+                                type: string
+                              createdBy:
+                                minLength: 1
+                                type: string
+                              createdOn:
+                                minLength: 1
+                                type: string
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                          ztdProgramBaseInfo:
+                            type: object
+                    ztdProgramTimings:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - actualDate
+                          - actualDateApprovedBy
+                          - approvedActualDate
+                          - approvedPlanDate
+                          - createdBy
+                          - deleteFlg
+                          - displayFlg
+                          - milestoneStatus
+                          - planDate
+                          - planDateApprovedBy
+                          - programTimingId
+                        type: object
+                        properties:
+                          programTimingId:
+                            type: number
+                          actualDate:
+                            minLength: 1
+                            type: string
+                          actualDateApprovedBy:
+                            minLength: 1
+                            type: string
+                          actualDateApprovedOn:
+                            type: object
+                          approvedPlanDate:
+                            minLength: 1
+                            type: string
+                          approvedActualDate:
+                            minLength: 1
+                            type: string
+                          forecastClosureDate:
+                            type: object
+                          comments:
+                            type: object
+                          actualStatus:
+                            type: object
+                          actualWbp:
+                            type: object
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          isActualDateApproved:
+                            type: object
+                          isPlanDateApproved:
+                            type: object
+                          milestoneStatus:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            type: object
+                          planDate:
+                            minLength: 1
+                            type: string
+                          planDateApprovedBy:
+                            minLength: 1
+                            type: string
+                          planDateApprovedOn:
+                            type: object
+                          planStatus:
+                            type: object
+                          planWbp:
+                            type: object
+                          zmdPlusMilestone:
+                            required:
+                              - deleteFlg
+                              - displayFlg
+                              - modifiedBy
+                              - modifiedOn
+                              - plusMilestoneCd
+                              - plusMilestoneId
+                              - plusMilestoneName
+                              - plusMilestoneType
+                              - plusPhaseOrder
+                              - zmdPlusPhase
+                            type: object
+                            properties:
+                              plusMilestoneId:
+                                type: number
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                              plusMilestoneCd:
+                                minLength: 1
+                                type: string
+                              plusMilestoneName:
+                                minLength: 1
+                                type: string
+                              plusPhaseOrder:
+                                type: number
+                              plusMilestoneType:
+                                minLength: 1
+                                type: string
+                              zmdPlusPhase:
+                                required:
+                                  - deleteFlg
+                                  - displayFlg
+                                  - modifiedBy
+                                  - modifiedOn
+                                  - plusPhaseCd
+                                  - plusPhaseId
+                                  - plusPhaseName
+                                type: object
+                                properties:
+                                  plusPhaseId:
+                                    type: number
+                                  deleteFlg:
+                                    minLength: 1
+                                    type: string
+                                  displayFlg:
+                                    minLength: 1
+                                    type: string
+                                  modifiedBy:
+                                    minLength: 1
+                                    type: string
+                                  modifiedOn:
+                                    minLength: 1
+                                    type: string
+                                  plusPhaseCd:
+                                    minLength: 1
+                                    type: string
+                                  plusPhaseName:
+                                    minLength: 1
+                                    type: string
+                              programTiming:
+                                type: object
+                          ztdProgramBaseInfo:
+                            type: object
+                    ztdProgramIssueList:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+                    ztdProgramUsers:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - createdBy
+                          - createdOn
+                          - deleteFlg
+                          - displayFlg
+                          - programUserId
+                          - type
+                        type: object
+                        properties:
+                          programUserId:
+                            type: number
+                          type:
+                            minLength: 1
+                            type: string
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          createdOn:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            type: object
+                          modifiedOn:
+                            type: object
+                          zmdAppUser:
+                            required:
+                              - appUserId
+                              - deleteFlg
+                              - displayFlg
+                              - displayName
+                              - email
+                              - firstName
+                              - globalId
+                              - lastName
+                              - regions
+                              - roles
+                            type: object
+                            properties:
+                              appUserId:
+                                type: number
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              displayName:
+                                minLength: 1
+                                type: string
+                              email:
+                                minLength: 1
+                                type: string
+                              firstName:
+                                minLength: 1
+                                type: string
+                              globalId:
+                                minLength: 1
+                                type: string
+                              lastName:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                type: object
+                              modifiedOn:
+                                type: object
+                              roles:
+                                type: array
+                                items:
+                                  type: object
+                                  properties: {}
+                              regions:
+                                type: array
+                                items:
+                                  type: object
+                                  properties: {}
+                          zmdPlusRole:
+                            required:
+                              - deleteFlg
+                              - displayFlg
+                              - isSdt
+                              - modifiedBy
+                              - modifiedOn
+                              - plusRoleCd
+                              - plusRoleId
+                              - plusRoleName
+                              - plusRoleOrder
+                            type: object
+                            properties:
+                              plusRoleId:
+                                type: number
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              isSdt:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                              plusRoleCd:
+                                minLength: 1
+                                type: string
+                              plusRoleName:
+                                minLength: 1
+                                type: string
+                              plusRoleOrder:
+                                type: number
+                    zmdAdientPlatform:
+                      type: object
+                    zmdDvPhase:
+                      required:
+                        - createdBy
+                        - createdOn
+                        - deleteFlg
+                        - displayFlg
+                        - dvPhaseCd
+                        - dvPhaseId
+                        - dvPhaseName
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        dvPhaseId:
+                          type: number
+                        createdBy:
+                          minLength: 1
+                          type: string
+                        createdOn:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        dvPhaseCd:
+                          minLength: 1
+                          type: string
+                        dvPhaseName:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    ztdProgramExtendedUsers:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+                    zmdLaunchType:
+                      type: object
+                    zmdOems:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - deleteFlg
+                          - displayFlg
+                          - modifiedBy
+                          - modifiedOn
+                          - oemCd
+                          - oemId
+                          - oemName
+                        type: object
+                        properties:
+                          oemId:
+                            type: number
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            minLength: 1
+                            type: string
+                          modifiedOn:
+                            minLength: 1
+                            type: string
+                          oemCd:
+                            minLength: 1
+                            type: string
+                          oemName:
+                            minLength: 1
+                            type: string
+                    zmdCustomers:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - customerCd
+                          - customerId
+                          - customerName
+                          - deleteFlg
+                          - displayFlg
+                          - modifiedBy
+                          - modifiedOn
+                        type: object
+                        properties:
+                          customerId:
+                            type: number
+                          customerCd:
+                            minLength: 1
+                            type: string
+                          customerName:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            minLength: 1
+                            type: string
+                          modifiedOn:
+                            minLength: 1
+                            type: string
+                    zmdCustomerPlants:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - customerPlantCd
+                          - customerPlantId
+                          - customerPlantName
+                          - deleteFlg
+                          - displayFlg
+                          - modifiedBy
+                          - modifiedOn
+                        type: object
+                        properties:
+                          customerPlantId:
+                            type: number
+                          customerPlantCd:
+                            minLength: 1
+                            type: string
+                          customerPlantName:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            minLength: 1
+                            type: string
+                          modifiedOn:
+                            minLength: 1
+                            type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: ''
+                properties:
+                  code:
+                    type: string
+                    example: 401
+                  message:
+                    type: string
+                    example: Invalid Authorization key for resource
+  /getProgramDataByDate:
+    get:
+      tags:
+        - Get Program Data
+      summary: Short Summary of API Method
+      description: Get Program data by date
+      operationId: getProgramDataByDate
+      parameters:
+        - name: date
+          in: query
+          description: Date in the format mm/dd/yyyy
+          required: true
+          schema:
+            type: string
+            example: 08/01/2022
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                description: ''
+                items:
+                  required:
+                    - adientProductScope
+                    - baseStatus
+                    - commercialAgreement
+                    - createdBy
+                    - eop
+                    - footprint
+                    - launchId
+                    - launchLocationCount
+                    - name
+                    - plannedStartDt
+                    - processType
+                    - prodPlanVol
+                    - programBaseId
+                    - programBaseType
+                    - programId
+                    - programManagerName
+                    - scopeSummary
+                    - sop
+                    - vehicleSegment
+                    - zmdCustomerGroup
+                    - zmdCustomerGroupRegion
+                    - zmdCustomerPlants
+                    - zmdCustomerType
+                    - zmdCustomers
+                    - zmdDesignResponsibility
+                    - zmdDvPhase
+                    - zmdOems
+                    - zmdProductGroup
+                    - zmdProductLine
+                    - zmdProgramCategory
+                    - zmdProgramLifecycleState
+                    - ztdProgramAdientPlantMaps
+                    - ztdProgramExtendedUsers
+                    - ztdProgramIssueList
+                    - ztdProgramTimings
+                    - ztdProgramUsers
+                  type: object
+                  properties:
+                    programBaseId:
+                      type: number
+                    adientPlatform:
+                      type: object
+                    commercialAgreement:
+                      minLength: 1
+                      type: string
+                    createdBy:
+                      minLength: 1
+                      type: string
+                    createdOn:
+                      type: object
+                    deleteFlg:
+                      type: object
+                    deletedOn:
+                      type: object
+                    directedSupplier:
+                      type: object
+                    displayFlg:
+                      type: object
+                    dvBuildLocation:
+                      type: object
+                    eop:
+                      minLength: 1
+                      type: string
+                    evBevFlg:
+                      type: object
+                    footprint:
+                      minLength: 1
+                      type: string
+                    isActive:
+                      type: object
+                    isDraft:
+                      type: object
+                    launchId:
+                      type: number
+                    launchLocationCount:
+                      type: number
+                    modifiedBy:
+                      type: object
+                    modifiedOn:
+                      type: object
+                    name:
+                      minLength: 1
+                      type: string
+                    oemModelCd:
+                      type: object
+                    oemModelYear:
+                      type: object
+                    oemPlatformName:
+                      type: object
+                    oemVehicleName:
+                      type: object
+                    plannedStartDt:
+                      minLength: 1
+                      type: string
+                    processType:
+                      minLength: 1
+                      type: string
+                    prodPlanVol:
+                      type: number
+                    programBaseType:
+                      minLength: 1
+                      type: string
+                    programId:
+                      type: number
+                    programLifeYears:
+                      type: object
+                    riskStatus:
+                      type: object
+                    scopeSummary:
+                      minLength: 1
+                      type: string
+                    sop:
+                      minLength: 1
+                      type: string
+                    specialConstraint:
+                      type: object
+                    statusSummary:
+                      type: object
+                    stratigicImpact:
+                      type: object
+                    vehicleSegment:
+                      minLength: 1
+                      type: string
+                    baseStatus:
+                      minLength: 1
+                      type: string
+                    adientProductScope:
+                      minLength: 1
+                      type: string
+                    zmdCustomerGroup:
+                      required:
+                        - customerGroupCd
+                        - customerGroupId
+                        - customerGroupName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - zmdCustomerGroupRegion
+                      type: object
+                      properties:
+                        customerGroupId:
+                          type: number
+                        customerGroupCd:
+                          minLength: 1
+                          type: string
+                        customerGroupName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        zmdCustomerGroupRegion:
+                          required:
+                            - createdBy
+                            - createdOn
+                            - customerGroupRegionCd
+                            - customerGroupRegionId
+                            - customerGroupRegionName
+                            - deleteFlg
+                            - displayFlg
+                            - modifiedBy
+                            - modifiedOn
+                          type: object
+                          properties:
+                            customerGroupRegionId:
+                              type: number
+                            createdBy:
+                              minLength: 1
+                              type: string
+                            createdOn:
+                              minLength: 1
+                              type: string
+                            customerGroupRegionCd:
+                              minLength: 1
+                              type: string
+                            customerGroupRegionName:
+                              minLength: 1
+                              type: string
+                            deleteFlg:
+                              minLength: 1
+                              type: string
+                            displayFlg:
+                              minLength: 1
+                              type: string
+                            modifiedBy:
+                              minLength: 1
+                              type: string
+                            modifiedOn:
+                              minLength: 1
+                              type: string
+                    zmdCustomerGroupRegion:
+                      required:
+                        - createdBy
+                        - createdOn
+                        - customerGroupRegionCd
+                        - customerGroupRegionId
+                        - customerGroupRegionName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        customerGroupRegionId:
+                          type: number
+                        createdBy:
+                          minLength: 1
+                          type: string
+                        createdOn:
+                          minLength: 1
+                          type: string
+                        customerGroupRegionCd:
+                          minLength: 1
+                          type: string
+                        customerGroupRegionName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdCustomerPlantRegion:
+                      type: object
+                    zmdCustomerType:
+                      required:
+                        - customerTypeCd
+                        - customerTypeId
+                        - customerTypeName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        customerTypeId:
+                          type: number
+                        customerTypeCd:
+                          minLength: 1
+                          type: string
+                        customerTypeName:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdDesignResponsibility:
+                      required:
+                        - deleteFlg
+                        - designRespCd
+                        - designRespId
+                        - designRespName
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        designRespId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        designRespCd:
+                          minLength: 1
+                          type: string
+                        designRespName:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    zmdPlusScope:
+                      type: object
+                    zmdProductGroup:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - productGroupCd
+                        - productGroupId
+                        - productGroupName
+                      type: object
+                      properties:
+                        productGroupId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        productGroupCd:
+                          minLength: 1
+                          type: string
+                        productGroupName:
+                          minLength: 1
+                          type: string
+                    zmdProductLine:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - productLineCd
+                        - productLineId
+                        - productLineName
+                      type: object
+                      properties:
+                        productLineId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        productLineCd:
+                          minLength: 1
+                          type: string
+                        productLineName:
+                          minLength: 1
+                          type: string
+                    zmdProgramCategory:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - programCategoryCd
+                        - programCategoryId
+                        - programCategoryName
+                      type: object
+                      properties:
+                        programCategoryId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        programCategoryCd:
+                          minLength: 1
+                          type: string
+                        programCategoryName:
+                          minLength: 1
+                          type: string
+                    programManagerName:
+                      minLength: 1
+                      type: string
+                    zmdProgramLifecycleState:
+                      required:
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        - programLifecycleStateCd
+                        - programLifecycleStateId
+                        - programLifecycleStateName
+                      type: object
+                      properties:
+                        programLifecycleStateId:
+                          type: number
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                        programLifecycleStateCd:
+                          minLength: 1
+                          type: string
+                        programLifecycleStateName:
+                          minLength: 1
+                          type: string
+                    ztdProgramBaseOemMaps:
+                      type: object
+                    ztdProgramBaseCustomerMaps:
+                      type: object
+                    ztdProgramBaseCustomerPlantMaps:
+                      type: object
+                    ztdProgramLaunches:
+                      type: object
+                    ztdProgramLessons:
+                      type: object
+                    ztdProgramManagerInputs:
+                      type: object
+                    ztdProgramPlusDeliverables:
+                      type: object
+                    ztdProgramProductAreaMaps:
+                      type: object
+                    ztdProgramAdientPlantMaps:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - createdBy
+                          - createdOn
+                          - deleteFlg
+                          - displayFlg
+                          - programAdientPlantMapId
+                        type: object
+                        properties:
+                          programAdientPlantMapId:
+                            type: number
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          createdOn:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            type: object
+                          modifiedOn:
+                            type: object
+                          zmdAdientPlant:
+                            required:
+                              - adientPlantCd
+                              - adientPlantId
+                              - adientPlantName
+                              - createdBy
+                              - createdOn
+                              - deleteFlg
+                              - displayFlg
+                              - modifiedBy
+                              - modifiedOn
+                            type: object
+                            properties:
+                              adientPlantId:
+                                type: number
+                              adientPlantCd:
+                                minLength: 1
+                                type: string
+                              adientPlantName:
+                                minLength: 1
+                                type: string
+                              createdBy:
+                                minLength: 1
+                                type: string
+                              createdOn:
+                                minLength: 1
+                                type: string
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                          ztdProgramBaseInfo:
+                            type: object
+                    ztdProgramTimings:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - createdBy
+                          - deleteFlg
+                          - displayFlg
+                          - planDate
+                          - programTimingId
+                        type: object
+                        properties:
+                          programTimingId:
+                            type: number
+                          actualDate:
+                            type: object
+                          actualDateApprovedBy:
+                            type: object
+                          actualDateApprovedOn:
+                            type: object
+                          approvedPlanDate:
+                            type: object
+                          approvedActualDate:
+                            type: object
+                          forecastClosureDate:
+                            type: object
+                          comments:
+                            type: object
+                          actualStatus:
+                            type: object
+                          actualWbp:
+                            type: object
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          isActualDateApproved:
+                            type: object
+                          isPlanDateApproved:
+                            type: object
+                          milestoneStatus:
+                            type: object
+                          modifiedBy:
+                            type: object
+                          planDate:
+                            minLength: 1
+                            type: string
+                          planDateApprovedBy:
+                            type: object
+                          planDateApprovedOn:
+                            type: object
+                          planStatus:
+                            type: object
+                          planWbp:
+                            type: object
+                          zmdPlusMilestone:
+                            required:
+                              - deleteFlg
+                              - displayFlg
+                              - modifiedBy
+                              - modifiedOn
+                              - plusMilestoneCd
+                              - plusMilestoneId
+                              - plusMilestoneName
+                              - plusMilestoneType
+                              - plusPhaseOrder
+                              - zmdPlusPhase
+                            type: object
+                            properties:
+                              plusMilestoneId:
+                                type: number
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                              plusMilestoneCd:
+                                minLength: 1
+                                type: string
+                              plusMilestoneName:
+                                minLength: 1
+                                type: string
+                              plusPhaseOrder:
+                                type: number
+                              plusMilestoneType:
+                                minLength: 1
+                                type: string
+                              zmdPlusPhase:
+                                required:
+                                  - deleteFlg
+                                  - displayFlg
+                                  - modifiedBy
+                                  - modifiedOn
+                                  - plusPhaseCd
+                                  - plusPhaseId
+                                  - plusPhaseName
+                                type: object
+                                properties:
+                                  plusPhaseId:
+                                    type: number
+                                  deleteFlg:
+                                    minLength: 1
+                                    type: string
+                                  displayFlg:
+                                    minLength: 1
+                                    type: string
+                                  modifiedBy:
+                                    minLength: 1
+                                    type: string
+                                  modifiedOn:
+                                    minLength: 1
+                                    type: string
+                                  plusPhaseCd:
+                                    minLength: 1
+                                    type: string
+                                  plusPhaseName:
+                                    minLength: 1
+                                    type: string
+                              programTiming:
+                                type: object
+                          ztdProgramBaseInfo:
+                            type: object
+                    ztdProgramIssueList:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+                    ztdProgramUsers:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - createdBy
+                          - createdOn
+                          - deleteFlg
+                          - displayFlg
+                          - programUserId
+                          - type
+                        type: object
+                        properties:
+                          programUserId:
+                            type: number
+                          type:
+                            minLength: 1
+                            type: string
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          createdOn:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            type: object
+                          modifiedOn:
+                            type: object
+                          zmdAppUser:
+                            required:
+                              - appUserId
+                              - deleteFlg
+                              - displayFlg
+                              - displayName
+                              - email
+                              - firstName
+                              - globalId
+                              - lastName
+                              - modifiedBy
+                              - modifiedOn
+                              - regions
+                              - roles
+                            type: object
+                            properties:
+                              appUserId:
+                                type: number
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              displayName:
+                                minLength: 1
+                                type: string
+                              email:
+                                minLength: 1
+                                type: string
+                              firstName:
+                                minLength: 1
+                                type: string
+                              globalId:
+                                minLength: 1
+                                type: string
+                              lastName:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                              roles:
+                                minItems: 1
+                                uniqueItems: true
+                                type: array
+                                items:
+                                  required:
+                                    - appRoleCd
+                                    - appRoleDescription
+                                    - appRoleId
+                                    - appRoleName
+                                    - deleteFlg
+                                    - displayFlg
+                                    - modifiedBy
+                                    - modifiedOn
+                                  type: object
+                                  properties:
+                                    appRoleId:
+                                      type: number
+                                    appRoleCd:
+                                      minLength: 1
+                                      type: string
+                                    appRoleDescription:
+                                      minLength: 1
+                                      type: string
+                                    appRoleName:
+                                      minLength: 1
+                                      type: string
+                                    deleteFlg:
+                                      minLength: 1
+                                      type: string
+                                    displayFlg:
+                                      minLength: 1
+                                      type: string
+                                    modifiedBy:
+                                      minLength: 1
+                                      type: string
+                                    modifiedOn:
+                                      minLength: 1
+                                      type: string
+                                    permissions:
+                                      minItems: 1
+                                      uniqueItems: true
+                                      type: array
+                                      items:
+                                        required:
+                                          - appPermissionCd
+                                          - appPermissionDescription
+                                          - appPermissionId
+                                          - appPermissionName
+                                          - deleteFlg
+                                          - displayFlg
+                                          - modifiedBy
+                                          - modifiedOn
+                                        type: object
+                                        properties:
+                                          appPermissionId:
+                                            type: number
+                                          appPermissionCd:
+                                            minLength: 1
+                                            type: string
+                                          appPermissionDescription:
+                                            minLength: 1
+                                            type: string
+                                          appPermissionName:
+                                            minLength: 1
+                                            type: string
+                                          deleteFlg:
+                                            minLength: 1
+                                            type: string
+                                          displayFlg:
+                                            minLength: 1
+                                            type: string
+                                          modifiedBy:
+                                            minLength: 1
+                                            type: string
+                                          modifiedOn:
+                                            minLength: 1
+                                            type: string
+                              regions:
+                                minItems: 1
+                                uniqueItems: true
+                                type: array
+                                items:
+                                  required:
+                                    - createdBy
+                                    - createdOn
+                                    - customerGroupRegionCd
+                                    - customerGroupRegionId
+                                    - customerGroupRegionName
+                                    - deleteFlg
+                                    - displayFlg
+                                    - modifiedBy
+                                    - modifiedOn
+                                  type: object
+                                  properties:
+                                    customerGroupRegionId:
+                                      type: number
+                                    createdBy:
+                                      minLength: 1
+                                      type: string
+                                    createdOn:
+                                      minLength: 1
+                                      type: string
+                                    customerGroupRegionCd:
+                                      minLength: 1
+                                      type: string
+                                    customerGroupRegionName:
+                                      minLength: 1
+                                      type: string
+                                    deleteFlg:
+                                      minLength: 1
+                                      type: string
+                                    displayFlg:
+                                      minLength: 1
+                                      type: string
+                                    modifiedBy:
+                                      minLength: 1
+                                      type: string
+                                    modifiedOn:
+                                      minLength: 1
+                                      type: string
+                          zmdPlusRole:
+                            required:
+                              - deleteFlg
+                              - displayFlg
+                              - isSdt
+                              - modifiedBy
+                              - modifiedOn
+                              - plusRoleCd
+                              - plusRoleId
+                              - plusRoleName
+                              - plusRoleOrder
+                            type: object
+                            properties:
+                              plusRoleId:
+                                type: number
+                              deleteFlg:
+                                minLength: 1
+                                type: string
+                              displayFlg:
+                                minLength: 1
+                                type: string
+                              isSdt:
+                                minLength: 1
+                                type: string
+                              modifiedBy:
+                                minLength: 1
+                                type: string
+                              modifiedOn:
+                                minLength: 1
+                                type: string
+                              plusRoleCd:
+                                minLength: 1
+                                type: string
+                              plusRoleName:
+                                minLength: 1
+                                type: string
+                              plusRoleOrder:
+                                type: number
+                    zmdAdientPlatform:
+                      type: object
+                    zmdDvPhase:
+                      required:
+                        - createdBy
+                        - createdOn
+                        - deleteFlg
+                        - displayFlg
+                        - dvPhaseCd
+                        - dvPhaseId
+                        - dvPhaseName
+                        - modifiedBy
+                        - modifiedOn
+                      type: object
+                      properties:
+                        dvPhaseId:
+                          type: number
+                        createdBy:
+                          minLength: 1
+                          type: string
+                        createdOn:
+                          minLength: 1
+                          type: string
+                        deleteFlg:
+                          minLength: 1
+                          type: string
+                        displayFlg:
+                          minLength: 1
+                          type: string
+                        dvPhaseCd:
+                          minLength: 1
+                          type: string
+                        dvPhaseName:
+                          minLength: 1
+                          type: string
+                        modifiedBy:
+                          minLength: 1
+                          type: string
+                        modifiedOn:
+                          minLength: 1
+                          type: string
+                    ztdProgramExtendedUsers:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+                    zmdLaunchType:
+                      type: object
+                    zmdOems:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                          - deleteFlg
+                          - displayFlg
+                          - modifiedBy
+                          - modifiedOn
+                          - oemCd
+                          - oemId
+                          - oemName
+                        type: object
+                        properties:
+                          oemId:
+                            type: number
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            minLength: 1
+                            type: string
+                          modifiedOn:
+                            minLength: 1
+                            type: string
+                          oemCd:
+                            minLength: 1
+                            type: string
+                          oemName:
+                            minLength: 1
+                            type: string
+                    zmdCustomers:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+                    zmdCustomerPlants:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: ''
+                properties:
+                  code:
+                    type: string
+                    example: 401
+                  message:
+                    type: string
+                    example: Invalid Authorization key for resource
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: Authorization
+      in: header
