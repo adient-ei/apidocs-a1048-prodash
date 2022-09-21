@@ -3,7 +3,7 @@ info:
   title: Prodash APIs
   version: 1.0.0
 servers:
-  - url: https://apigatewaydev.adient.com/v1/prodash
+  - url: https://apigatewayqa.adient.com/v1/prodash
     description: Quality
 security:
   - ApiKeyAuth: []
@@ -2087,9 +2087,265 @@ paths:
                   message:
                     type: string
                     example: Invalid Authorization key for resource
+  /getActivePmoUsers:
+    get:
+      tags:
+      - PMO Users
+      summary: Get Active PMO users
+      description: Get Active PMO users
+      operationId: getActivePmoUsers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                minItems: 1
+                uniqueItems: true
+                type: array
+                description: ""
+                items:
+                  required:
+                  - appUserId
+                  - deleteFlg
+                  - displayFlg
+                  - displayName
+                  - email
+                  - firstName
+                  - globalId
+                  - lastName
+                  - modifiedBy
+                  - modifiedOn
+                  - regions
+                  - roles
+                  type: object
+                  properties:
+                    appUserId:
+                      type: number
+                    deleteFlg:
+                      minLength: 1
+                      type: string
+                    displayFlg:
+                      minLength: 1
+                      type: string
+                    displayName:
+                      minLength: 1
+                      type: string
+                    email:
+                      minLength: 1
+                      type: string
+                    firstName:
+                      minLength: 1
+                      type: string
+                    globalId:
+                      minLength: 1
+                      type: string
+                    lastName:
+                      minLength: 1
+                      type: string
+                    modifiedBy:
+                      minLength: 1
+                      type: string
+                    modifiedOn:
+                      minLength: 1
+                      type: string
+                    roles:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                        - appRoleCd
+                        - appRoleDescription
+                        - appRoleId
+                        - appRoleName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        type: object
+                        properties:
+                          appRoleId:
+                            type: number
+                          appRoleCd:
+                            minLength: 1
+                            type: string
+                          appRoleDescription:
+                            minLength: 1
+                            type: string
+                          appRoleName:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            minLength: 1
+                            type: string
+                          modifiedOn:
+                            minLength: 1
+                            type: string
+                          permissions:
+                            minItems: 1
+                            uniqueItems: true
+                            type: array
+                            items:
+                              required:
+                              - appPermissionCd
+                              - appPermissionDescription
+                              - appPermissionId
+                              - appPermissionName
+                              - deleteFlg
+                              - displayFlg
+                              - modifiedBy
+                              - modifiedOn
+                              type: object
+                              properties:
+                                appPermissionId:
+                                  type: number
+                                appPermissionCd:
+                                  minLength: 1
+                                  type: string
+                                appPermissionDescription:
+                                  minLength: 1
+                                  type: string
+                                appPermissionName:
+                                  minLength: 1
+                                  type: string
+                                deleteFlg:
+                                  minLength: 1
+                                  type: string
+                                displayFlg:
+                                  minLength: 1
+                                  type: string
+                                modifiedBy:
+                                  minLength: 1
+                                  type: string
+                                modifiedOn:
+                                  minLength: 1
+                                  type: string
+                    regions:
+                      minItems: 1
+                      uniqueItems: true
+                      type: array
+                      items:
+                        required:
+                        - createdBy
+                        - createdOn
+                        - customerGroupRegionCd
+                        - customerGroupRegionId
+                        - customerGroupRegionName
+                        - deleteFlg
+                        - displayFlg
+                        - modifiedBy
+                        - modifiedOn
+                        type: object
+                        properties:
+                          customerGroupRegionId:
+                            type: number
+                          createdBy:
+                            minLength: 1
+                            type: string
+                          createdOn:
+                            minLength: 1
+                            type: string
+                          customerGroupRegionCd:
+                            minLength: 1
+                            type: string
+                          customerGroupRegionName:
+                            minLength: 1
+                            type: string
+                          deleteFlg:
+                            minLength: 1
+                            type: string
+                          displayFlg:
+                            minLength: 1
+                            type: string
+                          modifiedBy:
+                            minLength: 1
+                            type: string
+                          modifiedOn:
+                            minLength: 1
+                            type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: ''
+                properties:
+                  code:
+                    type: string
+                    example: 401
+                  message:
+                    type: string
+                    example: Invalid Authorization key for resource
+  /issuetracker/manageResponsibleUserAndAdditionalSDT/*/*/add:
+    post:
+      description: Manage Responsible User. Sample path is '/issuetracker/manageResponsibleUserAndAdditionalSDT/1112221/0/add'
+      summary: Manage Responsible User
+      operationId: manageResponsibleUserAndAdditionalSDT
+      tags: 
+      - Manage Responsible User
+      requestBody:
+        description: Request Body for Responsible user update/add
+        required: true
+        content:
+          appplication/json:
+            schema:
+              $ref: '#/components/schemas/ResponsibleUser'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: true
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                description: ''
+                properties:
+                  code:
+                    type: string
+                    example: 401
+                  message:
+                    type: string
+                    example: Invalid Authorization key for resource
 components:
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       name: Authorization
       in: header
+  schemas:
+    ResponsibleUser:
+      type: object
+      properties:
+        responsible:
+          type: object
+          properties:
+            deleteFlg:
+              type: string
+            displayFlg:
+              type: string
+            displayName:
+              type: string
+            email:
+              type: string
+            firstName:
+              type: string
+            globalId:
+              type: string
+            lastName:
+              type: string
+        updatedBy:
+          type: string
